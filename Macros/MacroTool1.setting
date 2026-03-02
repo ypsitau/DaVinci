@@ -1,0 +1,152 @@
+{
+	Tools = ordered() {
+		MacroTool1 = MacroOperator {
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "Merge2",
+					Source = "Background",
+					Name = "MainInput",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 2,
+					Default = 0,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftGreen",
+					ControlGroup = 2,
+					Default = 0,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftBlue",
+					ControlGroup = 2,
+					Default = 0,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftAlpha",
+					ControlGroup = 2,
+					Default = 1,
+				},
+				MainInput2 = InstanceInput {
+					SourceOp = "Transform1",
+					Source = "Input",
+					Name = "MainInput",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Transform1",
+					Source = "Center",
+					Name = "CenterSrc",
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Transform1",
+					Source = "Size",
+					Name = "SizeSrc",
+					Default = 1,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Merge1",
+					Source = "Center",
+					Name = "CenterDst",
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Merge1",
+					Source = "Size",
+					Name = "SizeDst",
+					Default = 1,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge1",
+					Source = "Output",
+					Name = "MainOutput",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Merge2 = Merge {
+					Inputs = {
+						Foreground = Input {
+							SourceOp = "Background2",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 149.362, 114.993 } },
+				},
+				Background2 = Background {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Instance_Rectangle1",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 149.362, 173.275 } },
+				},
+				Transform1 = Transform {
+					ViewInfo = OperatorInfo { Pos = { 269.099, 41.2821 } },
+				},
+				Merge1 = Merge {
+					CtrlWZoom = false,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "Merge2",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Transform1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 273.813, 116.707 } },
+				},
+				Instance_Rectangle1 = RectangleMask {
+					SourceOp = "Rectangle1",
+					Inputs = {
+						EffectMask = Input {
+						},
+						SettingsNest = Input {
+						},
+						LayersNest = Input {
+						},
+						CommentsNest = Input {
+						},
+						FrameRenderScriptNest = Input {
+						},
+						StartRenderScripts = Input {
+						},
+						EndRenderScripts = Input {
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 145.591, 226.415 } },
+				},
+				Rectangle1 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 281.047, 226.415 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "MacroTool1"
+}
