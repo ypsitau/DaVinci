@@ -1,0 +1,132 @@
+{
+	Tools = ordered() {
+		Step0_mrg = Merge {
+			NameSet = true,
+			Inputs = {
+				Size = Input { Value = 0.358843883574191, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 474.632, 134.706 } },
+		},
+		Step1_mrg = Merge {
+			NameSet = true,
+			Inputs = {
+				Blend = Input {
+					SourceOp = "Step1_mrgBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "Step0_mrg",
+					Source = "Output",
+				},
+				Size = Input { Value = 0.358843883574191, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 584.632, 134.706 } },
+		},
+		Step1_mrgBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			KeyFrames = {
+				[15] = { 0, RH = { 15.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[16] = { 1, LH = { 15.6666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		Step2_mrg = Merge {
+			NameSet = true,
+			Inputs = {
+				Blend = Input {
+					SourceOp = "Step2_mrgBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "Step1_mrg",
+					Source = "Output",
+				},
+				Size = Input { Value = 0.358843883574191, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 695.572, 134.706 } },
+		},
+		Step2_mrgBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			KeyFrames = {
+				[30] = { 0, RH = { 30.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[31] = { 1, LH = { 30.6666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		Step3_mrg = Merge {
+			NameSet = true,
+			Inputs = {
+				Blend = Input {
+					SourceOp = "Step3_mrgBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "Step2_mrg",
+					Source = "Output",
+				},
+				Size = Input { Value = 0.358843883574191, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 804.632, 133.849 } },
+		},
+		Step3_mrgBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			KeyFrames = {
+				[35] = { 0, RH = { 35.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[36] = { 1, LH = { 35.6666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		Step4_mrg = Merge {
+			NameSet = true,
+			Inputs = {
+				Blend = Input {
+					SourceOp = "Step4_mrgBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "Step3_mrg",
+					Source = "Output",
+				},
+				Size = Input { Value = 0.358843883574191, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 913.692, 136.423 } },
+		},
+		Step4_mrgBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			KeyFrames = {
+				[40] = { 0, RH = { 40.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[41] = { 1, LH = { 40.6666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		Step5_mrg = Merge {
+			NameSet = true,
+			Inputs = {
+				Blend = Input {
+					SourceOp = "Step5_mrgBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "Step4_mrg",
+					Source = "Output",
+				},
+				Size = Input { Value = 0.358843883574191, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1030.89, 135.993 } },
+		},
+		Step5_mrgBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			KeyFrames = {
+				[45.0968824940048] = { 0, RH = { 45.4302158273381, 0.333333333333333 }, Flags = { Linear = true } },
+				[46.0968824940048] = { 1, LH = { 45.7635491606715, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		}
+	}
+}
