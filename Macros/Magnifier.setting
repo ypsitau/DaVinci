@@ -1,6 +1,6 @@
 {
 	Tools = ordered() {
-		Magnifier = MacroOperator {
+		Magnifier = GroupOperator {
 			Inputs = ordered() {
 				Input11 = InstanceInput {
 					SourceOp = "Transform1",
@@ -113,7 +113,7 @@
 						Height = Input { Value = 1080, },
 						UseFrameFormatSettings = Input { Value = 1, },
 						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
-						TopLeftRed = Input { Value = 0.6666666666667, },
+						TopLeftRed = Input { Value = 1, },
 						TopLeftGreen = Input { Value = 1, },
 						TopLeftBlue = Input { Value = 1, }
 					},

@@ -1,6 +1,6 @@
 {
 	Tools = ordered() {
-		ShadowTextBox = MacroOperator {
+		TextBoxShadow = MacroOperator {
 			Inputs = ordered() {
 				Input14 = InstanceInput {
 					SourceOp = "Text",
@@ -240,5 +240,5 @@
 			},
 		}
 	},
-	ActiveTool = "ShadowTextBox"
+	ActiveTool = "TextBoxShadow"
 }

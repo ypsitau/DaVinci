@@ -1,0 +1,283 @@
+{
+	Tools = ordered() {
+		TextBoxBlur = MacroOperator {
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "Blur1",
+					Source = "Input",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "Blur1",
+					Source = "XBlurSize",
+					Default = 15,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Rectangle1",
+					Source = "Center",
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Rectangle1",
+					Source = "Width",
+					Default = 0.5,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Rectangle1",
+					Source = "Height",
+					Default = 0.5,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Rectangle1",
+					Source = "CornerRadius",
+					Default = 0,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Background1",
+					Source = "TopLeftRed",
+					Name = "Background Color",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Background1",
+					Source = "TopLeftGreen",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Background1",
+					Source = "TopLeftBlue",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Merge2",
+					Source = "BlendClone",
+					Default = 0.5,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Instance_Rectangle1",
+					Source = "SoftEdge",
+				},
+				Input11 = InstanceInput {
+					SourceOp = "Instance_Rectangle1",
+					Source = "BorderWidth",
+					Default = 0.005,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftRed",
+					Name = "Border Color",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input13 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftGreen",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input14 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftBlue",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input15 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "StyledText",
+				},
+				Input16 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Font",
+					ControlGroup = 13,
+				},
+				Input17 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Style",
+					ControlGroup = 13,
+				},
+				Input18 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Red1Clone",
+					Name = "Color",
+					ControlGroup = 14,
+					Default = 1,
+				},
+				Input19 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Green1Clone",
+					ControlGroup = 14,
+					Default = 1,
+				},
+				Input20 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Blue1Clone",
+					ControlGroup = 14,
+					Default = 1,
+				},
+				Input21 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Size",
+					Default = 0.08,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge4",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Blur1 = Blur {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle1",
+							Source = "Mask",
+						},
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input { Value = 15, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 427.454, 6.02815 } },
+				},
+				Rectangle1 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input { Value = { 0.511037527593819, 0.623529411764706 }, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 575.524, -157.537 } },
+				},
+				Background1 = Background {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle1",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 1, },
+						TopLeftBlue = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 587.619, -80.6607 } },
+				},
+				Merge2 = Merge {
+					CtrlWZoom = false,
+					Inputs = {
+						Blend = Input { Value = 0.402, },
+						Background = Input {
+							SourceOp = "Blur1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 587.423, 6.45837 } },
+				},
+				Merge3 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge2",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Background2",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 585.846, 67.7393 } },
+				},
+				Instance_Rectangle1 = RectangleMask {
+					SourceOp = "Rectangle1",
+					Inputs = {
+						EffectMask = Input {
+						},
+						SettingsNest = Input {
+						},
+						LayersNest = Input {
+						},
+						BorderWidth = Input {
+							Value = 0.005,
+						},
+						Solid = Input {
+							Value = 0,
+						},
+						CommentsNest = Input {
+						},
+						FrameRenderScriptNest = Input {
+						},
+						StartRenderScripts = Input {
+						},
+						EndRenderScripts = Input {
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 704.64, -156.821 } },
+				},
+				Background2 = Background {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Instance_Rectangle1",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 1, },
+						TopLeftBlue = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 725.382, 66.0251 } },
+				},
+				Merge4 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge3",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Text1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 585.846, 120.022 } },
+				},
+				Text1 = TextPlus {
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Wrap = Input { Value = 1, },
+						Center = Input {
+							Value = { 0.511037527593819, 0.623529411764706 },
+							Expression = "Rectangle1.Center",
+						},
+						LayoutRotation = Input { Value = 1, },
+						TransformRotation = Input { Value = 1, },
+						Softness1 = Input { Value = 1, },
+						StyledText = Input { Value = "Text", },
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Bold", },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 726.325, 120.879 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "TextBoxBlur"
+}
