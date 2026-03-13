@@ -2,21 +2,21 @@
 	Tools = ordered() {
 		Magnifier = MacroOperator {
 			Inputs = ordered() {
-				Input1 = InstanceInput {
-					SourceOp = "Instance_Rectangle1",
-					Source = "SoftEdge",
-					Name = "Shadow Soft Edge",
-					Default = 0.03,
-				},
-				Input2 = InstanceInput {
-					SourceOp = "Instance_Rectangle1",
-					Source = "BorderWidth",
-					Name = "Shadow Border Width",
-					Default = 0.02,
+				Input11 = InstanceInput {
+					SourceOp = "Transform1",
+					Source = "Size",
+					Name = "Magnifying Ratio",
+					Default = 1,
 				},
 				Input3 = InstanceInput {
 					SourceOp = "Instance_Rectangle1",
 					Source = "Center",
+					Name = "Display Center",
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Transform1",
+					Source = "Center",
+					Name = "Source Center",
 				},
 				Input4 = InstanceInput {
 					SourceOp = "Instance_Rectangle1",
@@ -36,7 +36,7 @@
 				Input7 = InstanceInput {
 					SourceOp = "Background1",
 					Source = "TopLeftRed",
-					Name = "Color",
+					Name = "Shadow Color",
 					ControlGroup = 7,
 					Default = 0.6666666666667,
 				},
@@ -52,16 +52,17 @@
 					ControlGroup = 7,
 					Default = 1,
 				},
-				Input10 = InstanceInput {
-					SourceOp = "Transform1",
-					Source = "Center",
-					Name = "Source Center",
+				Input1 = InstanceInput {
+					SourceOp = "Instance_Rectangle1",
+					Source = "SoftEdge",
+					Name = "Shadow Soft Edge",
+					Default = 0.03,
 				},
-				Input11 = InstanceInput {
-					SourceOp = "Transform1",
-					Source = "Size",
-					Name = "Magnifying Ratio",
-					Default = 1,
+				Input2 = InstanceInput {
+					SourceOp = "Instance_Rectangle1",
+					Source = "BorderWidth",
+					Name = "Shadow Border Width",
+					Default = 0.02,
 				},
 				MainInput1 = InstanceInput {
 					SourceOp = "PipeRouter1",
@@ -86,10 +87,10 @@
 						LayersNest = Input {
 						},
 						SoftEdge = Input {
-							Value = 0.0283,
+							Value = 0.03,
 						},
 						BorderWidth = Input {
-							Value = 0.019,
+							Value = 0.02,
 						},
 						CommentsNest = Input {
 						},
