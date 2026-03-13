@@ -1,0 +1,62 @@
+{
+	Tools = ordered() {
+		MergePopup = MacroOperator {
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "Merge",
+					Source = "Background",
+				},
+				MainInput2 = InstanceInput {
+					SourceOp = "Merge",
+					Source = "Foreground",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "Merge",
+					Source = "Center",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Merge",
+					Source = "Size",
+					Default = 1,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Merge",
+					Source = "Angle",
+					Default = 0,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Merge = Merge {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Blend = Input {
+							SourceOp = "MergeBlend",
+							Source = "Value",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 480.2, 41.6432 } },
+				},
+				MergeBlend = BezierSpline {
+					SplineColor = { Red = 205, Green = 205, Blue = 205 },
+					CtrlWZoom = false,
+					KeyFrames = {
+						[100] = { 0, RH = { 100.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+						[101] = { 1, LH = { 100.666666666667, 0.666666666666667 }, RH = { 110.666666666667, 1 }, Flags = { Linear = true } },
+						[130] = { 1, LH = { 120.333333333333, 1 }, RH = { 130.333333333333, 0.666666666666667 }, Flags = { Linear = true } },
+						[131] = { 0, LH = { 130.666666666667, 0.333333333333333 }, Flags = { Linear = true } }
+					}
+				}
+			},
+		}
+	},
+	ActiveTool = "MergePopup"
+}

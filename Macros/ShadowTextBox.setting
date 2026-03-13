@@ -1,0 +1,244 @@
+{
+	Tools = ordered() {
+		ShadowTextBox = MacroOperator {
+			Inputs = ordered() {
+				Input14 = InstanceInput {
+					SourceOp = "Text",
+					Source = "StyledText",
+				},
+				Input15 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Font",
+					ControlGroup = 9,
+				},
+				Input16 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Style",
+					ControlGroup = 9,
+				},
+				Input17 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Red1Clone",
+					Name = "Color",
+					ControlGroup = 10,
+					Default = 0.9,
+				},
+				Input18 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Green1Clone",
+					ControlGroup = 10,
+					Default = 0.9,
+				},
+				Input19 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Blue1Clone",
+					ControlGroup = 10,
+					Default = 0.9,
+				},
+				Input20 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Alpha1Clone",
+					ControlGroup = 10,
+					Default = 1,
+				},
+				Input21 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Size",
+					Default = 0.08,
+				},
+				Input1 = InstanceInput {
+					SourceOp = "Rectangle",
+					Source = "Center",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Rectangle",
+					Source = "Width",
+					Default = 0.5,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Rectangle",
+					Source = "Height",
+					Default = 0.5,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Rectangle",
+					Source = "CornerRadius",
+					Default = 0.283,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 5,
+					Default = 0.5463590621948,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftGreen",
+					ControlGroup = 5,
+					Default = 0.5912554264069,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftBlue",
+					ControlGroup = 5,
+					Default = 0.5899225473404,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftAlpha",
+					ControlGroup = 5,
+					Default = 1,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Shadow",
+					Source = "Red",
+					Name = "Shadow Color",
+					ControlGroup = 6,
+					Default = 0,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Shadow",
+					Source = "Green",
+					Name = "Shadow Color",
+					ControlGroup = 6,
+					Default = 0,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "Shadow",
+					Source = "Blue",
+					Name = "Shadow Color",
+					ControlGroup = 6,
+					Default = 0,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "Shadow",
+					Source = "Alpha",
+					Name = "Shadow Color",
+					ControlGroup = 6,
+					Default = 1,
+				},
+				Input13 = InstanceInput {
+					SourceOp = "Shadow",
+					Source = "ShadowDepth",
+					Page = "Controls",
+					Default = 0.100000001490116,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Rectangle = RectangleMask {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						CornerRadius = Input { Value = 0.283, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 647.512, -215.255 } },
+				},
+				Background = Background {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 0.5463590621948, },
+						TopLeftGreen = Input { Value = 0.5912554264069, },
+						TopLeftBlue = Input { Value = 0.5899225473404, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 770.077, -215.255 } },
+				},
+				Shadow = Shadow {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						ShadowOffset = Input {
+							Value = { 0.505, 0.491111111111111 },
+							Expression = "Point(0.5 + 0.05 * ShadowDepth, 0.5 - 0.05 * ShadowDepth * Background.Width  / Background.Height)",
+						},
+						Input = Input {
+							SourceOp = "Background",
+							Source = "Output",
+						},
+						ShadowDepth = Input { Value = 0.1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 885.1, -215.255 } },
+					UserControls = ordered() {
+						ShadowDepth = {
+							LINKS_Name = "Shadow Depth",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Default = 0.100000001490116,
+							INP_Integer = false,
+							INP_MinScale = 0,
+							INP_MaxScale = 1,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 1,
+							INP_SplineType = "Default",
+							ICS_ControlPage = "Controls"
+						},
+						hogehoge = {
+							LINKS_Name = "hogehoge",
+							INP_Integer = false,
+							INP_SplineType = "Default",
+							LINKID_DataType = "Number",
+						}
+					}
+				},
+				Text = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Wrap = Input { Value = 1, },
+						LayoutRotation = Input { Value = 1, },
+						TransformRotation = Input { Value = 1, },
+						Red1 = Input { Value = 0.9, },
+						Green1 = Input { Value = 0.9, },
+						Blue1 = Input { Value = 0.9, },
+						Softness1 = Input { Value = 1, },
+						StyledText = Input { Value = "Text", },
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Bold", },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 1010.18, -162.617 } },
+				},
+				Merge = Merge {
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Shadow",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Text",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 1008.61, -215.255 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "ShadowTextBox"
+}

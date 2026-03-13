@@ -1,0 +1,212 @@
+{
+	Tools = ordered() {
+		RectAndText = MacroOperator {
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "sRectangle1",
+					Source = "Width",
+					Default = 0.5,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "sRectangle1",
+					Source = "Height",
+					Default = 0.5,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "sRectangle1",
+					Source = "Red",
+					Name = "Color",
+					ControlGroup = 3,
+					Default = 0.2,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "sRectangle1",
+					Source = "Green",
+					ControlGroup = 3,
+					Default = 0.2666666666667,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "sRectangle1",
+					Source = "Blue",
+					ControlGroup = 3,
+					Default = 0.2156862745098,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "sRectangle1",
+					Source = "Alpha",
+					ControlGroup = 3,
+					Default = 1,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Instance_sRectangle1",
+					Source = "Red",
+					Name = "Color",
+					ControlGroup = 4,
+					Default = 0.6196078431373,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Instance_sRectangle1",
+					Source = "Green",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Instance_sRectangle1",
+					Source = "Blue",
+					ControlGroup = 4,
+					Default = 0.7921568627451,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Instance_sRectangle1",
+					Source = "Alpha",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "sText1",
+					Source = "StyledText",
+				},
+				Input12 = InstanceInput {
+					SourceOp = "sText1",
+					Source = "Font",
+					ControlGroup = 6,
+				},
+				Input13 = InstanceInput {
+					SourceOp = "sText1",
+					Source = "Style",
+					ControlGroup = 6,
+				},
+				Input14 = InstanceInput {
+					SourceOp = "sText1",
+					Source = "Red1Clone",
+					Name = "Color",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input15 = InstanceInput {
+					SourceOp = "sText1",
+					Source = "Green1Clone",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input16 = InstanceInput {
+					SourceOp = "sText1",
+					Source = "Blue1Clone",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input17 = InstanceInput {
+					SourceOp = "sText1",
+					Source = "Alpha1Clone",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input18 = InstanceInput {
+					SourceOp = "sText1",
+					Source = "Size",
+					Default = 0.08,
+				},
+				Input19 = InstanceInput {
+					SourceOp = "sText1",
+					Source = "LineSpacingClone",
+					Default = 1,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "sRender1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				sRectangle1 = sRectangle {
+					Inputs = {
+						CornerRadius = Input { Value = 0.087, },
+						Red = Input { Value = 0.2, },
+						Green = Input { Value = 0.2666666666667, },
+						Blue = Input { Value = 0.2156862745098, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 49.4538, -192.706 } },
+				},
+				Instance_sRectangle1 = sRectangle {
+					SourceOp = "sRectangle1",
+					Inputs = {
+						LayersNest = Input {
+						},
+						Solid = Input {
+							Value = 0,
+						},
+						BorderWidth = Input {
+							Value = 0.01,
+						},
+						Red = Input {
+							Value = 0.6196078431373,
+						},
+						Green = Input {
+						},
+						Blue = Input {
+							Value = 0.7921568627451,
+						},
+						Alpha = Input {
+						},
+						CommentsNest = Input {
+						},
+						FrameRenderScriptNest = Input {
+						},
+						StartRenderScripts = Input {
+						},
+						EndRenderScripts = Input {
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 148.449, -242.844 } },
+				},
+				sRender1 = sRender {
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Input = Input {
+							SourceOp = "sMerge2",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 169.191, -108.71 } },
+				},
+				sMerge2 = sMerge {
+					CtrlWZoom = false,
+					Inputs = {
+						Input1 = Input {
+							SourceOp = "sRectangle1",
+							Source = "Output",
+						},
+						Input2 = Input {
+							SourceOp = "Instance_sRectangle1",
+							Source = "Output",
+						},
+						Input3 = Input {
+							SourceOp = "sText1",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 167.939, -193.99 } },
+				},
+				sText1 = sText {
+					Inputs = {
+						Wrap = Input { Value = 1, },
+						LayoutRotation = Input { Value = 1, },
+						TransformRotation = Input { Value = 1, },
+						StyledText = Input { Value = "Hello", },
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Bold", },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 285.156, -194.42 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "RectAndText"
+}
