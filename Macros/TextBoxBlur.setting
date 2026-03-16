@@ -1,7 +1,83 @@
 {
 	Tools = ordered() {
-		TextBoxBlur = MacroOperator {
+		TextBoxBlur = GroupOperator {
 			Inputs = ordered() {
+				Input15 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "StyledText",
+				},
+				Input16 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Font",
+					ControlGroup = 13,
+				},
+				Input17 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Style",
+					ControlGroup = 13,
+				},
+				Input21 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Size",
+					Default = 0.08,
+				},
+				Input18 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Red1Clone",
+					Name = "Text Color",
+					ControlGroup = 14,
+					Default = 1,
+				},
+				Input19 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Green1Clone",
+					ControlGroup = 14,
+					Default = 1,
+				},
+				Input20 = InstanceInput {
+					SourceOp = "Text1",
+					Source = "Blue1Clone",
+					ControlGroup = 14,
+					Default = 1,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Background1",
+					Source = "TopLeftRed",
+					Name = "Background Color",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Background1",
+					Source = "TopLeftGreen",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Background1",
+					Source = "TopLeftBlue",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftRed",
+					Name = "Border Color",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input13 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftGreen",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input14 = InstanceInput {
+					SourceOp = "Background2",
+					Source = "TopLeftBlue",
+					ControlGroup = 11,
+					Default = 1,
+				},
 				MainInput1 = InstanceInput {
 					SourceOp = "Blur1",
 					Source = "Input",
@@ -30,25 +106,6 @@
 					Source = "CornerRadius",
 					Default = 0,
 				},
-				Input6 = InstanceInput {
-					SourceOp = "Background1",
-					Source = "TopLeftRed",
-					Name = "Background Color",
-					ControlGroup = 7,
-					Default = 1,
-				},
-				Input7 = InstanceInput {
-					SourceOp = "Background1",
-					Source = "TopLeftGreen",
-					ControlGroup = 7,
-					Default = 1,
-				},
-				Input8 = InstanceInput {
-					SourceOp = "Background1",
-					Source = "TopLeftBlue",
-					ControlGroup = 7,
-					Default = 1,
-				},
 				Input9 = InstanceInput {
 					SourceOp = "Merge2",
 					Source = "BlendClone",
@@ -63,63 +120,6 @@
 					Source = "BorderWidth",
 					Default = 0.005,
 				},
-				Input12 = InstanceInput {
-					SourceOp = "Background2",
-					Source = "TopLeftRed",
-					Name = "Border Color",
-					ControlGroup = 11,
-					Default = 1,
-				},
-				Input13 = InstanceInput {
-					SourceOp = "Background2",
-					Source = "TopLeftGreen",
-					ControlGroup = 11,
-					Default = 1,
-				},
-				Input14 = InstanceInput {
-					SourceOp = "Background2",
-					Source = "TopLeftBlue",
-					ControlGroup = 11,
-					Default = 1,
-				},
-				Input15 = InstanceInput {
-					SourceOp = "Text1",
-					Source = "StyledText",
-				},
-				Input16 = InstanceInput {
-					SourceOp = "Text1",
-					Source = "Font",
-					ControlGroup = 13,
-				},
-				Input17 = InstanceInput {
-					SourceOp = "Text1",
-					Source = "Style",
-					ControlGroup = 13,
-				},
-				Input18 = InstanceInput {
-					SourceOp = "Text1",
-					Source = "Red1Clone",
-					Name = "Color",
-					ControlGroup = 14,
-					Default = 1,
-				},
-				Input19 = InstanceInput {
-					SourceOp = "Text1",
-					Source = "Green1Clone",
-					ControlGroup = 14,
-					Default = 1,
-				},
-				Input20 = InstanceInput {
-					SourceOp = "Text1",
-					Source = "Blue1Clone",
-					ControlGroup = 14,
-					Default = 1,
-				},
-				Input21 = InstanceInput {
-					SourceOp = "Text1",
-					Source = "Size",
-					Default = 0.08,
-				}
 			},
 			Outputs = {
 				MainOutput1 = InstanceOutput {
@@ -148,7 +148,7 @@
 						PixelAspect = Input { Value = { 1, 1 }, },
 						UseFrameFormatSettings = Input { Value = 1, },
 						ClippingMode = Input { Value = FuID { "None" }, },
-						Center = Input { Value = { 0.511037527593819, 0.623529411764706 }, }
+						Center = Input { Value = { 0.5, 0.5 }, }
 					},
 					ViewInfo = OperatorInfo { Pos = { 575.524, -157.537 } },
 				},
@@ -171,7 +171,7 @@
 				Merge2 = Merge {
 					CtrlWZoom = false,
 					Inputs = {
-						Blend = Input { Value = 0.402, },
+						Blend = Input { Value = 0.5, },
 						Background = Input {
 							SourceOp = "Blur1",
 							Source = "Output",
@@ -262,7 +262,7 @@
 						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
 						Wrap = Input { Value = 1, },
 						Center = Input {
-							Value = { 0.511037527593819, 0.623529411764706 },
+							Value = { 0.5, 0.5 },
 							Expression = "Rectangle1.Center",
 						},
 						LayoutRotation = Input { Value = 1, },

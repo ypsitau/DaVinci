@@ -19,7 +19,7 @@
 				Input17 = InstanceInput {
 					SourceOp = "Text",
 					Source = "Red1Clone",
-					Name = "Color",
+					Name = "Text Color",
 					ControlGroup = 10,
 					Default = 0.9,
 				},
@@ -68,7 +68,7 @@
 				Input5 = InstanceInput {
 					SourceOp = "Background",
 					Source = "TopLeftRed",
-					Name = "Color",
+					Name = "Background Color",
 					ControlGroup = 5,
 					Default = 0.5463590621948,
 				},
