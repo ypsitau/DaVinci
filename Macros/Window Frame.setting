@@ -1,0 +1,255 @@
+{
+	Tools = ordered() {
+		WindowFrame = MacroOperator {
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Instance_Rectangle",
+					Source = "SoftEdge",
+					Default = 0.015,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Instance_Rectangle",
+					Source = "BorderWidth",
+					Default = 0.01,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Text",
+					Source = "StyledText",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Font",
+					ControlGroup = 4,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Style",
+					ControlGroup = 4,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Red1Clone",
+					Name = "Color",
+					ControlGroup = 5,
+					Default = 0.3529411764706,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Green1Clone",
+					ControlGroup = 5,
+					Default = 0.3529411764706,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Blue1Clone",
+					ControlGroup = 5,
+					Default = 0.3529411764706,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Size",
+					Default = 0.04,
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "MergeIcon",
+					Source = "Foreground",
+					Name = "Icon Image",
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 8,
+					Default = 0.7372549019608,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftGreen",
+					ControlGroup = 8,
+					Default = 0.8274509803922,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftBlue",
+					ControlGroup = 8,
+					Default = 1,
+				},
+				Input13 = InstanceInput {
+					SourceOp = "Rectangle",
+					Source = "Center",
+				},
+				Input14 = InstanceInput {
+					SourceOp = "Rectangle",
+					Source = "Width",
+					Default = 0.5,
+				},
+				Input15 = InstanceInput {
+					SourceOp = "Rectangle",
+					Source = "Height",
+					Default = 0.5,
+				},
+				Input16 = InstanceInput {
+					SourceOp = "Rectangle",
+					Source = "CornerRadius",
+					Default = 0.04,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "MergeTitle",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Instance_Rectangle = RectangleMask {
+					NameSet = true,
+					SourceOp = "Rectangle",
+					Inputs = {
+						EffectMask = Input {
+						},
+						SettingsNest = Input {
+						},
+						LayersNest = Input {
+						},
+						SoftEdge = Input {
+							Value = 0.015,
+						},
+						BorderWidth = Input {
+							Value = 0.01,
+						},
+						CommentsNest = Input {
+						},
+						FrameRenderScriptNest = Input {
+						},
+						StartRenderScripts = Input {
+						},
+						EndRenderScripts = Input {
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, -214.5 } },
+				},
+				BackgroundBg = Background {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Instance_Rectangle",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, -148.5 } },
+				},
+				Text = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Wrap = Input { Value = 1, },
+						Center = Input {
+							Value = { 0.3, 0.71 },
+							Expression = "Point(Rectangle.Center.X - Rectangle.Width / 2 + 0.05, Rectangle.Center.Y + Rectangle.Height / 2 - 0.04)",
+						},
+						LayoutRotation = Input { Value = 1, },
+						TransformRotation = Input { Value = 1, },
+						Red1 = Input { Value = 0.3529411764706, },
+						Green1 = Input { Value = 0.3529411764706, },
+						Blue1 = Input { Value = 0.3529411764706, },
+						Softness1 = Input { Value = 1, },
+						StyledText = Input { Value = "title", },
+						Font = Input { Value = "Montserrat", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.04, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = -1, },
+						HorizontalJustificationNew = Input { Value = 3, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, -82.5 } },
+				},
+				MergeTitle = Merge {
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "MergeIcon",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Text",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, -82.5 } },
+				},
+				MergeIcon = Merge {
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "MergeBackground",
+							Source = "Output",
+						},
+						Center = Input {
+							Value = { 0.274590163934426, 0.713503649635037 },
+							Expression = "Point(Rectangle.Center.X - Rectangle.Width / 2 + 0.02, Rectangle.Center.Y + Rectangle.Height / 2 - 0.04)",
+						},
+						Size = Input { Value = 0.1162909836066, },
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, -115.5 } },
+				},
+				Background = Background {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 0.7372549019608, },
+						TopLeftGreen = Input { Value = 0.8274509803922, },
+						TopLeftBlue = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, -181.5 } },
+				},
+				MergeBackground = Merge {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "BackgroundBg",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Background",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, -139.758 } },
+				},
+				Rectangle = RectangleMask {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						CornerRadius = Input { Value = 0.04, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, -214.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "WindowFrame"
+}
