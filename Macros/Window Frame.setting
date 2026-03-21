@@ -2,78 +2,6 @@
 	Tools = ordered() {
 		WindowFrame = MacroOperator {
 			Inputs = ordered() {
-				Input1 = InstanceInput {
-					SourceOp = "Instance_Rectangle",
-					Source = "SoftEdge",
-					Default = 0.015,
-				},
-				Input2 = InstanceInput {
-					SourceOp = "Instance_Rectangle",
-					Source = "BorderWidth",
-					Default = 0.01,
-				},
-				Input3 = InstanceInput {
-					SourceOp = "Text",
-					Source = "StyledText",
-				},
-				Input4 = InstanceInput {
-					SourceOp = "Text",
-					Source = "Font",
-					ControlGroup = 4,
-				},
-				Input5 = InstanceInput {
-					SourceOp = "Text",
-					Source = "Style",
-					ControlGroup = 4,
-				},
-				Input6 = InstanceInput {
-					SourceOp = "Text",
-					Source = "Red1Clone",
-					Name = "Color",
-					ControlGroup = 5,
-					Default = 0.3529411764706,
-				},
-				Input7 = InstanceInput {
-					SourceOp = "Text",
-					Source = "Green1Clone",
-					ControlGroup = 5,
-					Default = 0.3529411764706,
-				},
-				Input8 = InstanceInput {
-					SourceOp = "Text",
-					Source = "Blue1Clone",
-					ControlGroup = 5,
-					Default = 0.3529411764706,
-				},
-				Input9 = InstanceInput {
-					SourceOp = "Text",
-					Source = "Size",
-					Default = 0.04,
-				},
-				MainInput1 = InstanceInput {
-					SourceOp = "MergeIcon",
-					Source = "Foreground",
-					Name = "Icon Image",
-				},
-				Input10 = InstanceInput {
-					SourceOp = "Background",
-					Source = "TopLeftRed",
-					Name = "Color",
-					ControlGroup = 8,
-					Default = 0.7372549019608,
-				},
-				Input11 = InstanceInput {
-					SourceOp = "Background",
-					Source = "TopLeftGreen",
-					ControlGroup = 8,
-					Default = 0.8274509803922,
-				},
-				Input12 = InstanceInput {
-					SourceOp = "Background",
-					Source = "TopLeftBlue",
-					ControlGroup = 8,
-					Default = 1,
-				},
 				Input13 = InstanceInput {
 					SourceOp = "Rectangle",
 					Source = "Center",
@@ -92,7 +20,86 @@
 					SourceOp = "Rectangle",
 					Source = "CornerRadius",
 					Default = 0.04,
-				}
+				},
+				Input1 = InstanceInput {
+					SourceOp = "Instance_Rectangle",
+					Source = "SoftEdge",
+					Default = 0.015,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Instance_Rectangle",
+					Source = "BorderWidth",
+					Default = 0.01,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftRed",
+					Name = "Frame Color",
+					ControlGroup = 8,
+					Default = 0.7372549019608,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftGreen",
+					ControlGroup = 8,
+					Default = 0.8274509803922,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "Background",
+					Source = "TopLeftBlue",
+					ControlGroup = 8,
+					Default = 1,
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "MergeIcon",
+					Source = "Foreground",
+					Name = "Icon Image",
+				},
+				Input17 = InstanceInput {
+					SourceOp = "MergeIcon",
+					Source = "Size",
+					Name = "Icon Size",
+					Default = 1.0,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Text",
+					Source = "StyledText",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Font",
+					ControlGroup = 4,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Style",
+					ControlGroup = 4,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Red1Clone",
+					Name = "Title Color",
+					ControlGroup = 5,
+					Default = 0.3529411764706,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Green1Clone",
+					ControlGroup = 5,
+					Default = 0.3529411764706,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Blue1Clone",
+					ControlGroup = 5,
+					Default = 0.3529411764706,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Text",
+					Source = "Size",
+					Name = "Title Size",
+					Default = 0.04,
+				},
 			},
 			Outputs = {
 				MainOutput1 = InstanceOutput {
@@ -153,7 +160,7 @@
 						Wrap = Input { Value = 1, },
 						Center = Input {
 							Value = { 0.3, 0.71 },
-							Expression = "Point(Rectangle.Center.X - Rectangle.Width / 2 + 0.05, Rectangle.Center.Y + Rectangle.Height / 2 - 0.04)",
+							Expression = "Point(Rectangle.Center.X - Rectangle.Width / 2 + 0.05, Rectangle.Center.Y + Rectangle.Height / 2 - 0.035)",
 						},
 						LayoutRotation = Input { Value = 1, },
 						TransformRotation = Input { Value = 1, },
@@ -195,9 +202,9 @@
 						},
 						Center = Input {
 							Value = { 0.274590163934426, 0.713503649635037 },
-							Expression = "Point(Rectangle.Center.X - Rectangle.Width / 2 + 0.02, Rectangle.Center.Y + Rectangle.Height / 2 - 0.04)",
+							Expression = "Point(Rectangle.Center.X - Rectangle.Width / 2 + 0.02, Rectangle.Center.Y + Rectangle.Height / 2 - 0.035)",
 						},
-						Size = Input { Value = 0.1162909836066, },
+						Size = Input { Value = 1.0, },
 						PerformDepthMerge = Input { Value = 0, }
 					},
 					ViewInfo = OperatorInfo { Pos = { 770, -115.5 } },
