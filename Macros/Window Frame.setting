@@ -1,6 +1,6 @@
 {
 	Tools = ordered() {
-		WindowFrame = MacroOperator {
+		WindowFrame = GroupOperator {
 			Inputs = ordered() {
 				Input13 = InstanceInput {
 					SourceOp = "Rectangle",
